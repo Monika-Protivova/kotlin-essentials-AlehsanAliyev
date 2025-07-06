@@ -4,7 +4,8 @@ In Kotlin, the entry point to a program is the `main` function. This function is
 
 ```kotlin
 fun main(args: Array<String>) {
-    // Your code here
+   println("Hello, Kotlin!")
+   println("Program arguments: ${args.joinToString(", ")}")
 }
 ```
 

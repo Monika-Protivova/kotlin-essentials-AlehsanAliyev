@@ -1,22 +1,29 @@
 package com.motycka.edu.lesson03
 
 import java.time.LocalDate
+class Assignment() {
 
-/*
-  TODO implement the Assignment class.
+    lateinit var due: LocalDate
+    lateinit var assignedTo: String
 
-  The class should have the following public properties:
-    - `dueDate` of type `LocalDate` - should be public, immutable and initialized in the constructor
-    - `assignee` of type `String` - should be public, immutable and initialized in the constructor
+    constructor(due: LocalDate, assignedTo: String) : this() {
+        this.due = due
+        this.assignedTo = assignedTo
+    }
 
-  And the following private property:
-    - `finalGrade` of type `Int?` (nullable) - should be private, mutable and initialized to null
+    private var internalGrade: Int? = null
 
-  And the following methods:
-    - `setFinalGrade(grade: Int)`: sets the finalGrade for the assignment, but only if it is between 0 and 100 (inclusive).
-      Use: require(finalGrade in 0..100) { "Final grade must be between 0 and 100" }
-    - `getFinalGrade()`: returns the finalGrade for the assignment.
- */
+    fun setFinalGrade(score: Int) {
+        if (score < 0 || score > 100) {
+            throw IllegalArgumentException("Final grade must be between 0 and 100")
+        }
+        internalGrade = score
+    }
+
+    fun getFinalGrade(): Int? {
+        return internalGrade
+    }
+}
 
 /*
  Uncomment the main function to try the solution.
